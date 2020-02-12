@@ -56,11 +56,12 @@ class App {
 	 * @param string $appId the app id
 	 * @param string $topNamespace the namespace which should be prepended to
 	 * the transformed app id, defaults to OCA\
+	 * @param bool $ignoreCache
 	 * @return string the starting namespace for the app
 	 */
-	public static function buildAppNamespace(string $appId, string $topNamespace='OCA\\'): string {
+	public static function buildAppNamespace(string $appId, string $topNamespace='OCA\\', bool $ignoreCache = false): string {
 		// Hit the cache!
-		if (isset(self::$nameSpaceCache[$appId])) {
+		if (!$ignoreCache && isset(self::$nameSpaceCache[$appId])) {
 			return $topNamespace . self::$nameSpaceCache[$appId];
 		}
 

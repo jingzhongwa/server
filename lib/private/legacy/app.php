@@ -238,7 +238,7 @@ class OC_App {
 		self::$alreadyRegistered[$key] = true;
 
 		// Register on PSR-4 composer autoloader
-		$appNamespace = \OC\AppFramework\App::buildAppNamespace($app);
+		$appNamespace = \OC\AppFramework\App::buildAppNamespace($app, 'OCA\\', $force);
 		\OC::$server->registerNamespace($app, $appNamespace);
 
 		if (file_exists($path . '/composer/autoload.php')) {

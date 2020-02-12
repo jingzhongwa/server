@@ -132,7 +132,7 @@ class Installer {
 
 		// check for required dependencies
 		\OC_App::checkAppDependencies($this->config, $l, $info, $ignoreMax);
-		\OC_App::registerAutoloading($appId, $basedir);
+		\OC_App::registerAutoloading($appId, $basedir, true);
 
 		$previousVersion = $this->config->getAppValue($info['id'], 'installed_version', false);
 		if ($previousVersion) {
